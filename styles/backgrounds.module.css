@@ -1,0 +1,19 @@
+.default {
+    background-color: #FFF0F0
+}
+
+.page324 {
+    background: linear-gradient(165.54deg, #141333 -33.39%, #202261 15.89%, #543C97 55.84%, #6939A2 74.96%);
+    color: var(--white);
+     
+}
+
+.page324 h1 {
+    color: var(--white);
+}
+
+.page324 button {
+    background: var(--white);
+    font-weight: 400;
+    color: #6A3AA2;
+}
