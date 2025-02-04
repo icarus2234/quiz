@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { PageType, QuizPage, Routes, getNextPageId } from '@/helpers';
+import { getNextPageId, PageTypes, QuizPage, Routes } from '@/helpers';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { writeAnswers } from '@/store/quiz';
 
@@ -15,8 +15,7 @@ export const useQuizPage = (pageConfig: QuizPage) => {
     (state) => state.quiz.collectedQuizData
   );
 
-  const { titleTemplate, pageType, answers, nextPageId, htmlDescription } =
-    pageConfig;
+  const { titleTemplate, pageType, answers, htmlDescription } = pageConfig;
 
   const refinedAnswers =
     answers?.map((answer) => {
@@ -37,12 +36,12 @@ export const useQuizPage = (pageConfig: QuizPage) => {
       })
     );
 
-    if (pageType === PageType.SingleChoice) {
+    if (pageType === PageTypes.SingleChoice) {
       const nextPageId = selectedAnswers?.[0]?.nextPageId || null;
       push(`${nextPageId ? `/${nextPageId}` : Routes.End}`);
     } else {
       const nextPageId = getNextPageId(pageConfig, collectedQuizData);
-      console.log('nextPageId', nextPageId);
+
       push(`${nextPageId ? `/${nextPageId}` : Routes.End}`);
     }
   };

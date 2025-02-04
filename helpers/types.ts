@@ -5,6 +5,12 @@ export enum Routes {
 }
 export type PageType = 'info' | 'multi-choice' | 'single-choice';
 
+export enum PageTypes {
+  Info = 'info',
+  MultiChoice = 'multi-choice',
+  SingleChoice = 'single-choice',
+}
+
 export type AnswerValues = string | number | object | boolean;
 
 export interface NavigateCondition {
